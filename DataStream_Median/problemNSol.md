@@ -24,3 +24,6 @@ ii) The largest element of the 1st heap should be <= least element from the 2nd 
 
 
 LeetCode 295 -> Explanation can be found here : https://www.youtube.com/watch?v=itmhHWaHupI&t=914s
+
+:-)
+Code :- You can understand the solution from here -> https://leetcode.com/problems/find-median-from-data-stream/discuss/2349707/C%2B%2B-Simple-Heap-solution-Detailed-Explanation
