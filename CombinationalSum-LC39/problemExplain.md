@@ -62,8 +62,6 @@ If Image is not cleary visible to you, then for that I have uploaded it on my dr
 
 You may visit this link to see Image in good quality.
 
-LINK :- TREE DIAGRAM
-
 General discussion on how we devlop approach-
 
 This was a problem where we have to explore all possibility, make each combination and if sum of a combination becomes equal to target sum then we have to store that possible combination in our answer array.
@@ -107,5 +105,3 @@ So, if we do not a include a element in our answer then without decreasing targe
 But, if we choose a particular element to include in our answer, then we will decrease the target sum but we will not move to next index. Why we will not move to next index? because for a specific element we have unlimited number of choice, so it may be possible that specific element again contribute in making our sum.
 
 I've attached a tree diagram in this repo, please look at that image for further understanding
-
-image
