@@ -82,6 +82,7 @@ put(4);
 print();
 cout<<get(1)<<endl;
 get(3);
+print();
 get(4);
     return 0;
 }
