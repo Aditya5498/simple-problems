@@ -62,6 +62,7 @@ bool deleteNode(Node *head, Node *ptr){
 
 //Printing the linked list
 void printList(Node *head){
+    if(!head) cout<<"NULL node\n";
     while(head){
         cout<<head->val;
         if(head->next) cout<<" -> ";
@@ -163,7 +164,6 @@ Node *kAltReverse(Node *head, int k)
     /* 5) prev is new head of the input list */
     return prev; 
 } 
-  
 
 int main(){
     Node *head=new Node(1);
@@ -186,6 +186,7 @@ int main(){
     cout<<"reverse alternate every 3 nodes of above Linked list\n";
     head=kAltReverse(head,3);
     printList(head);
-    return 0;
+
+return 0;
 }
 
