@@ -18,12 +18,12 @@ Node(int data1){
 // Store the visited nodes in a array and traverse
 // the tree if we reach the leaf nodes, Just print the array
 //else add the existing node to the list
-void printPath(Node *root, vector<int> &path, int len){
+void printPath(Node *root, vector<int> path, int len){
     if(!root) return;
     path.push_back(root->data);
     len++;
     if(!root->left && !root->right){
-        for(int i=0;i<=len; i++) cout<<path[i]<<" -> ";
+        for(int i=0;i<len; i++) cout<<path[i]<<" ";
         cout<<endl;
     }
     else {    
