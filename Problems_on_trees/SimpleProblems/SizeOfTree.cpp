@@ -21,7 +21,7 @@ if(!root) return 0;
 return size(root->left) + size(root->right) + 1;
 }
 
-// Diameter of a binary tree
+// Diameter of a binary tree -> take max height of left and right then add 1 to it 
 int diameter(Node *root, int &dia){
 if(!root) return 0;
 int left=diameter(root->left, dia);
@@ -36,6 +36,13 @@ int height(Node *root){
     return max(height(root->left), height(root->right)) + 1;
 }
 
+
+// Check of the tree is balanced
+bool isBalanced(Node *root){
+    if(!root) return true;
+    if(abs(height(root->left) - height(root->right) >1 )) return false;
+    return true;
+}
 // level order traversal - traverse the tree by every level using queue
 //Printing the tree by level order traversal
 void PrintLevelOrder(Node *root){
@@ -80,7 +87,13 @@ int main(){
 
     int dia = 0;
     int height = diameter(root,dia);
-    cout<<"Diameter of the tree is "<<dia<<"\theight of the tree is : "<<height;
+    cout<<"Diameter of the tree is "<<dia<<"\theight of the tree is : "<<height<<endl;
+
+    cout<<"See if the tree is balanced or not "<<isBalanced(root)<<endl;
+    // Adding more Nodes to the tree 
+    root->left->left->left = new Node(100);
+    root->left->left->right = new Node(200);
+    cout<<"Added more nodes and check if the tree is balanced or not "<<isBalanced(root)<<endl;
 
     return 0;
 }
