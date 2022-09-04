@@ -84,6 +84,13 @@ void inOrder(Node *root,vector<Node*> &q){
     inOrder(root->right,q);
 }
 
+// root to leaf path sum
+bool rootToLeafPathSum(Node *root,int sum){
+    if(!root) return false;
+    if(!root->left && !root->right) return sum-root->data == 0;
+    return rootToLeafPathSum(root->left,sum-root->data) || rootToLeafPathSum(root->right,sum-root->data);
+}
+
 int main(){
  Node *root=new Node(1);
     root->left = new Node(2);
@@ -110,5 +117,9 @@ int main(){
     } 
     if(flag)
         cout<<"Tree is a BST\n";
-        return 0;
+       
+
+    // root to leaf path sum
+    cout<<"Check if there exists a path sum of(root to leaf) "<<3<<" : "<<rootToLeafPathSum(root,3); 
+     return 0;
 }

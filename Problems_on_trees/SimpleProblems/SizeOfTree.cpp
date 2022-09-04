@@ -40,7 +40,7 @@ int height(Node *root){
 // Check of the tree is balanced
 bool isBalanced(Node *root){
     if(!root) return true;
-    if(abs(height(root->left) - height(root->right) >1 )) return false;
+    if(abs(height(root->left) - height(root->right) ) >1 ) return false;
     return true;
 }
 // level order traversal - traverse the tree by every level using queue
