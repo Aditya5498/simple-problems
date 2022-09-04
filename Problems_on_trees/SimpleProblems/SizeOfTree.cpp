@@ -21,6 +21,15 @@ if(!root) return 0;
 return size(root->left) + size(root->right) + 1;
 }
 
+// Diameter of a binary tree
+int diameter(Node *root, int &dia){
+if(!root) return 0;
+int left=diameter(root->left, dia);
+int right=diameter(root->right, dia);
+dia = max(dia, left+right+1);
+return max(left, right)+1;
+}
+
 // Height of a tree -> take max of left sub tree and right sub tree +1
 int height(Node *root){
     if(!root) return 0;
@@ -68,6 +77,10 @@ int main(){
     PrintLevelOrder(root);
     cout<<" Size = "<<size(root)<<endl;
     cout<<"Height = "<<height(root)<<endl;
-    
+
+    int dia = 0;
+    int height = diameter(root,dia);
+    cout<<"Diameter of the tree is "<<dia<<"\theight of the tree is : "<<height;
+
     return 0;
 }
