@@ -91,6 +91,37 @@ bool rootToLeafPathSum(Node *root,int sum){
     return rootToLeafPathSum(root->left,sum-root->data) || rootToLeafPathSum(root->right,sum-root->data);
 }
 
+// check if a tree is foldable :- SOL - 
+// (Check if Left and Right subtrees are Mirror) 
+
+// There are mainly two functions:
+// Checks if tree can be folded or not 
+
+// IsFoldable(root)
+// 1) If tree is empty then return true
+// 2) Else check if left and right subtrees are structure wise mirrors of
+//     each other. Use utility function IsFoldableUtil(root->left,
+//     root->right) for this.
+// Checks if n1 and n2 are mirror of each other. 
+
+// IsFoldableUtil(n1, n2)
+// 1) If both trees are empty then return true.
+// 2) If one of them is empty and other is not then return false.
+// 3) Return true if following conditions are met
+//    a) n1->left is mirror of n2->right
+//    b) n1->right is mirror of n2->left
+
+bool isFoldableUtil(Node *l, Node *r){
+    if(!l && !r) return true;
+    if(!l || !r) return false;
+    return isFoldableUtil(l->left, r->right) && isFoldableUtil(l->right, r->left);
+}
+
+bool isFoldable(Node *root){
+    if(!root) return true;
+    return isFoldableUtil(root->left, root->right);
+}
+
 int main(){
  Node *root=new Node(1);
     root->left = new Node(2);
