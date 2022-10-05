@@ -66,6 +66,46 @@ TreeNode* constructTree(Node *head){
 return root;
 }
 
+
+void convertList2BinaryTree(Node *head,TreeNode *&root){
+
+queue<TreeNode*> q;
+
+if(!head) {
+    root = NULL;
+    return;
+}
+
+root = new TreeNode(head->data);
+q.push(root);
+
+head=head->next;
+
+
+while(head){
+TreeNode *parent = q.front();
+q.pop();
+
+TreeNode *left = NULL, *right = NULL;
+left = new TreeNode(head->data);
+q.push(left);
+
+head = head->next;
+
+if(head){
+    right = new TreeNode(head->data);
+    q.push(right);
+    head=head->next;
+}
+
+parent->left = left;
+parent->right = right;
+}
+
+
+}
+
+
 void printInOrder(TreeNode *root){
     if(!root) return ;
     printInOrder(root->left);
@@ -81,8 +121,10 @@ int main(){
     head -> next -> next-> next-> next= new Node (30);
     head -> next-> next-> next-> next-> next = new Node (35);
 
-    TreeNode *root = constructTree(head);
+    //TreeNode *root = constructTree(head);
 
+    TreeNode *root;
+    convertList2BinaryTree(head,root);
     printInOrder(root);
     return 0;
 }
