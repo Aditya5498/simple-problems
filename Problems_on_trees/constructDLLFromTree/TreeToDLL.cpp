@@ -16,6 +16,8 @@ Node(int val){
 }
 };
 
+//The idea is to do in-order traversal of the binary tree. While doing inorder traversal, keep track of the previously visited node in a variable, say prev. For every visited node, make it next to the prev and set previous of this node as prev.
+
 void constructDLL(Node *root,Node *head,Node *tail){
     if(!root) return;
 
