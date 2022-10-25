@@ -22,7 +22,6 @@ class Graph{
                 cout<<itr->first<< "->"<<itr->second[i]<<endl;
         }
     }
-
     void DFS(int v){   
         if(!visited[v]){
              cout<<v<<" ";
@@ -30,6 +29,21 @@ class Graph{
             for(auto it = adjacencyList[v].begin(); it!= adjacencyList[v].end();it++)
                      DFS(*it);
         }
+    }
+
+    void DFS(int v, const int& d, bool& ans){  
+        if(ans) cout<<"\nANSWER has been found at vertex "<<v<<" & d ="<<d<<endl; 
+        if(!visited[v]){
+            if(v == d) {
+                cout<<"Found a match at vertex "<<v<<" == "<<d<<endl;
+                ans = true;
+                return;
+                }
+            visited[v] = true;
+            for(auto it = adjacencyList[v].begin(); it!= adjacencyList[v].end();it++)
+                     DFS(*it,d,ans);
+        }
+    
     }
 
     void BFS(int v){
@@ -54,6 +68,13 @@ class Graph{
     void clearVisited(){
         visited.clear();
     }
+
+    bool findPath(int v,int d){
+        visited.clear();
+        bool ans = false;
+        DFS(v,d,ans);
+        return ans;
+    }
 };
 
 int main(){
@@ -71,5 +92,10 @@ int main(){
     g.clearVisited();
     cout<<"\nPrinting BFS\n";
     g.BFS(2);
+    cout<<endl;
+    cout<<"There's ";
+    if(!g.findPath(0,3)) cout<<"NO";
+    else cout<<"is";
+    cout<<" path between 0 & 3 ";
     return 0;
 }
