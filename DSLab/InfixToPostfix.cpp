@@ -38,5 +38,8 @@ int main(){
     str = "a*b+c";
     cout<<"Conversion of "<<str<<" to postfix expression is\n";
     convertInfixToPostfix(str);
+       str = "a+b*c+d*e";
+    cout<<"Conversion of "<<str<<" to postfix expression is\n";
+    convertInfixToPostfix(str);
     return 0;
 }
